@@ -16,3 +16,8 @@ use Illuminate\Http\Request;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::get('/exchange', 'ExchangeDataController@index');
+Route::get('/exchange/{coin_name}', 'ExchangeDataController@get_currency');
+Route::get('/exchange/{coin_name}/{convert}', 'ExchangeDataController@convert_currency');
+Route::get('/news', 'ExchangeDataController@latest_news');
